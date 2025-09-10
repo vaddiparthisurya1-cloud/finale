@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tourist Natural Disaster Alert Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .alert-box {
+      background: #fff;
+      border-left: 6px solid red;
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .alert-box h3 {
+      margin: 0 0 10px;
+      color: red;
+    }
+
+    .status {
+      background: #e9f7ef;
+      padding: 15px;
+      border-left: 6px solid #28a745;
+      width: 90%;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .status.danger {
+      background: #fbe9e7;
+      border-left-color: #e53935;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn-alert {
+      background-color: #dc3545;
+    }
+
+    .btn-safe {
+      background-color: #28a745;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tourist Alert Dashboard</h1>
+    <p>Natural Disaster Notifications & Emergency Assistance</p>
+  </header>
+
+  <main>
+    <div id="alertBox" class="alert-box">
+      <h3>🌪️ ALERT: Severe Storm Approaching</h3>
+      <p>Please seek shelter immediately. Local emergency services have been notified.</p>
+    </div>
+
+    <div id="statusBox" class="status">
+      <strong>Status:</strong> You are marked as <span id="userStatus">Safe</span>.
+    </div>
+
+    <div class="buttons">
+      <button class="btn-alert" onclick="triggerEmergency()">🚨 I'm in Danger</button>
+      <button class="btn-safe" onclick="markSafe()">✅ I'm Safe</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Tourist Emergency System. All rights reserved.
+  </footer>
+
+  <script>
+    function triggerEmergency() {
+      const statusBox = document.getElementById('statusBox');
+      const userStatus = document.getElementById('userStatus');
+
+      statusBox.classList.add('danger');
+      userStatus.textContent = 'In Danger';
+
+      // Simulate emergency call
+      alert("📡 Sending alert to emergency services on your behalf...\nYour location is being shared.");
+
+      // Simulate backend call (e.g., send GPS/location to server)
+      console.log("Emergency alert triggered for user. Location: Lat: xx.xxxx, Long: yy.yyyy");
+    }
+
+    function markSafe() {
+      const statusBox = document.getElementById('statusBox');
+      const userStatus = document.getElementById('userStatus');
+
+      statusBox.classList.remove('danger');
+      userStatus.textContent = 'Safe';
+
+      alert("✅ You are marked as safe. Stay alert and follow updates.");
+    }
+  </script>
+
+</body>
+</html>
